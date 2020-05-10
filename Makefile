@@ -34,3 +34,9 @@ clean:
 
 .PHONY: clean test
 
+
+CC= gcc
+CCOPT= -O3 -std=c99 -Wall -pedantic -fomit-frame-pointer -Wall -DNDEBUG
+
+libjsmn.so: jsmn.c
+	$(CC) $(CCOPT) -DJSMN_STRICT -fPIC -shared $^ -o $@
